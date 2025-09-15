@@ -124,19 +124,19 @@ function updateCoverflow() {
     });
 
     const currentData = imageData[currentIndex];
-    currentTitle.textContent = currentData.title;
-    currentDescription.textContent = currentData.description;
+    // currentTitle.textContent = currentData.title;
+    // currentDescription.textContent = currentData.description;
 
-    currentTitle.style.animation = 'none';
-    currentDescription.style.animation = 'none';
-    setTimeout(() => {
-        currentTitle.style.animation = 'fadeIn 0.6s forwards';
-        currentDescription.style.animation = 'fadeIn 0.6s forwards';
-    }, 10);
+    // currentTitle.style.animation = 'none';
+    // currentDescription.style.animation = 'none';
+    // setTimeout(() => {
+    //     currentTitle.style.animation = 'fadeIn 0.6s forwards';
+    //     currentDescription.style.animation = 'fadeIn 0.6s forwards';
+    // }, 10);
 
-    setTimeout(() => {
-        isAnimating = false;
-    }, 600);
+    // setTimeout(() => {
+    //     isAnimating = false;
+    // }, 600);
 }
 
 function navigate(direction) {
@@ -160,10 +160,10 @@ function goToIndex(index) {
 }
 
 // Keyboard navigation
-container.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') navigate(-1);
-    if (e.key === 'ArrowRight') navigate(1);
-});
+// container.addEventListener('keydown', (e) => {
+//     if (e.key === 'ArrowLeft') navigate(-1);
+//     if (e.key === 'ArrowRight') navigate(1);
+// });
 
 // Click on items to select
 items.forEach((item, index) => {
@@ -177,31 +177,31 @@ let touchStartY = 0;
 let touchEndY = 0;
 let isSwiping = false;
 
-container.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-    isSwiping = true;
-}, { passive: true });
+// container.addEventListener('touchstart', (e) => {
+//     touchStartX = e.changedTouches[0].screenX;
+//     touchStartY = e.changedTouches[0].screenY;
+//     isSwiping = true;
+// }, { passive: true });
 
-container.addEventListener('touchmove', (e) => {
-    if (!isSwiping) return;
+// container.addEventListener('touchmove', (e) => {
+//     if (!isSwiping) return;
 
-    const currentX = e.changedTouches[0].screenX;
-    const diff = currentX - touchStartX;
+//     const currentX = e.changedTouches[0].screenX;
+//     const diff = currentX - touchStartX;
 
-    if (Math.abs(diff) > 10) {
-        e.preventDefault();
-    }
-}, { passive: false });
+//     if (Math.abs(diff) > 10) {
+//         e.preventDefault();
+//     }
+// }, { passive: false });
 
-container.addEventListener('touchend', (e) => {
-    if (!isSwiping) return;
+// container.addEventListener('touchend', (e) => {
+//     if (!isSwiping) return;
 
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-    isSwiping = false;
-}, { passive: true });
+//     touchEndX = e.changedTouches[0].screenX;
+//     touchEndY = e.changedTouches[0].screenY;
+//     handleSwipe();
+//     isSwiping = false;
+// }, { passive: true });
 
 function handleSwipe() {
     const swipeThreshold = 30;
@@ -239,25 +239,25 @@ items.forEach((item, index) => {
 });
 
 // Autoplay functionality
-function startAutoplay() {
-    autoplayInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCoverflow();
-    }, 4000);
-    isPlaying = true;
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'block';
-}
+// function startAutoplay() {
+//     autoplayInterval = setInterval(() => {
+//         currentIndex = (currentIndex + 1) % items.length;
+//         updateCoverflow();
+//     }, 4000);
+//     isPlaying = true;
+//     playIcon.style.display = 'none';
+//     pauseIcon.style.display = 'block';
+// }
 
-function stopAutoplay() {
-    if (autoplayInterval) {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-    }
-    isPlaying = false;
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-}
+// function stopAutoplay() {
+//     if (autoplayInterval) {
+//         clearInterval(autoplayInterval);
+//         autoplayInterval = null;
+//     }
+//     isPlaying = false;
+//     playIcon.style.display = 'block';
+//     pauseIcon.style.display = 'none';
+// }
 
 function toggleAutoplay() {
     if (isPlaying) {
@@ -276,18 +276,18 @@ items.forEach((item) => {
     item.addEventListener('click', handleUserInteraction);
 });
 
-document.querySelector('.nav-button.prev').addEventListener('click', handleUserInteraction);
-document.querySelector('.nav-button.next').addEventListener('click', handleUserInteraction);
+// document.querySelector('.nav-button.prev').addEventListener('click', handleUserInteraction);
+// document.querySelector('.nav-button.next').addEventListener('click', handleUserInteraction);
 
 dots.forEach((dot) => {
     dot.addEventListener('click', handleUserInteraction);
 });
 
-container.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        handleUserInteraction();
-    }
-});
+// container.addEventListener('keydown', (e) => {
+//     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+//         handleUserInteraction();
+//     }
+// });
 
 // Smooth scrolling and active menu item
 const sections = document.querySelectorAll('.section');
@@ -373,7 +373,7 @@ function typeWriter(text, element, speed = 100) {
     let i = 0;
     // Clear content securely
     element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             // Use textContent instead of innerHTML to prevent XSS
@@ -467,6 +467,6 @@ function setupScrollAnimations() {
 
 // Initialize
 updateCoverflow();
-container.focus();
-startAutoplay();
+// container.focus();
+// startAutoplay();
 setupScrollAnimations();
