@@ -368,14 +368,16 @@ function handleSubmit(event) {
     event.target.reset();
 }
 
-// Typewriter effect for name
+// Typewriter effect for name - Secure version
 function typeWriter(text, element, speed = 100) {
     let i = 0;
-    element.innerHTML = '';
-
+    // Clear content securely
+    element.textContent = '';
+    
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            // Use textContent instead of innerHTML to prevent XSS
+            element.textContent += text.charAt(i);
             i++;
             setTimeout(type, speed);
         } else {
