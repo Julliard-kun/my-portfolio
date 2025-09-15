@@ -377,7 +377,96 @@ https://templatemo.com/tm-595-3d-coverflow
             event.target.reset();
         }
 
+        // Typewriter effect for name
+        function typeWriter(text, element, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // Hide cursor after typing is complete
+                    setTimeout(() => {
+                        const cursor = document.querySelector('.cursor-blink');
+                        if (cursor) cursor.style.opacity = '0';
+                    }, 2000);
+                }
+            }
+            type();
+        }
+
+        // Rotating roles animation
+        function startRoleRotation() {
+            const roles = ['Web Developer', 'IT Technician'];
+            const roleElement = document.getElementById('rotating-roles');
+            let currentRoleIndex = 0;
+            
+            function rotateRole() {
+                roleElement.style.opacity = '0';
+                roleElement.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                    roleElement.textContent = roles[currentRoleIndex];
+                    roleElement.style.opacity = '1';
+                    roleElement.style.transform = 'translateY(0)';
+                }, 300);
+            }
+            
+            // Start the rotation after initial delay
+            setTimeout(() => {
+                setInterval(rotateRole, 3000);
+            }, 4000);
+        }
+
+        // Initialize interactive header
+        function initializeInteractiveHeader() {
+            const nameElement = document.getElementById('typewriter-name');
+            const roleElement = document.getElementById('rotating-roles');
+            
+            if (nameElement) {
+                // Start typewriter effect after a short delay
+                setTimeout(() => {
+                    typeWriter('Julliard Macatuggal', nameElement, 80);
+                }, 1000);
+            }
+            
+            if (roleElement) {
+                // Add transition styles
+                roleElement.style.transition = 'all 0.3s ease';
+                startRoleRotation();
+            }
+        }
+
+        // Intersection Observer for triggering animations when section comes into view
+        function setupScrollAnimations() {
+            const aboutHeader = document.querySelector('.about-header');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        // Trigger typewriter effect when section is visible
+                        if (entry.target === aboutHeader) {
+                            initializeInteractiveHeader();
+                            observer.unobserve(entry.target); // Run only once
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+            
+            if (aboutHeader) {
+                observer.observe(aboutHeader);
+            }
+        }
+
         // Initialize
         updateCoverflow();
         container.focus();
         startAutoplay();
+        setupScrollAnimations();

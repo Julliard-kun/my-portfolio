@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" 
+    http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     <title>My Portfolio</title>
     <link href="css/index.css" rel="stylesheet">
 </head>
@@ -19,7 +20,7 @@
         </a>
 
         <nav class="main-menu" id="mainMenu">
-            <a href="#home" class="menu-item active">Home</a>
+            <a href="#about" class="menu-item active">About Me</a>
             <a href="#about" class="menu-item">Work Projects</a>
             <a href="#contact" class="menu-item">Random Projects</a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="menu-item external">GitHub</a>
@@ -36,8 +37,8 @@
     <section id="about" class="section">
         <div class="about-content">
             <div class="about-header">
-                <h2>Hello, I'm Julliard Macatuggal</h2>
-                <p>Web Developer | IT Technician</p>
+                <h2>Hello, I'm <span id="typewriter-name" class="typewriter-text"></span><span class="cursor-blink">|</span></h2>
+                <p><span id="rotating-roles" class="rotating-text">Web Developer</span></p>
             </div>
 
             <div class="about-main">
