@@ -1,5 +1,11 @@
 @charset "utf-8";
-/* CSS Document */
+/*
+Rainbow effect: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+Solid version:
+background: #667eea; Your primary blue
+background: #764ba2; Your primary purple 
+*/
+
 
 * {
     margin: 0;
@@ -769,7 +775,7 @@ body {
 }
 
 .feature-list li:hover {
-    color: #007bff;
+    color: #667eea;;
     transform: translateX(10px);
 }
 
@@ -829,8 +835,9 @@ body {
 }
 
 .stats-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     gap: 40px;
     padding: 60px;
     background: rgba(255, 255, 255, 0.03);
@@ -843,8 +850,8 @@ body {
     text-align: center;
 }
 
-.stat-number {
-    font-size: 48px;
+.stat-name {
+    font-size: 20px;
     font-weight: 700;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
@@ -967,6 +974,19 @@ body {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+}
+
+.email-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.email-link:hover {
+    color: #667eea;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .social-links {

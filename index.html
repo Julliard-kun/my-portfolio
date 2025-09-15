@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" 
     http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     <title>My Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="images/J-kun-logo-rounded.png">
     <link href="css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -142,27 +143,23 @@
 
             <div class="stats-section">
                 <div class="stat-item">
-                    <div class="stat-number">IT</div>
-                    <div class="stat-label">Something about IT</div>
+                    <div class="stat-name" id="stat-name-1">PMA Inventory System</div> <!-- Rotating projects -->
+                    <div class="stat-label">💻 Projects Completed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">IT</div>
-                    <div class="stat-label">Something about IT</div>
+                    <div class="stat-name" id="stat-name-2">Civil Service Professional Eligibility</div> <!-- Rotating certificates -->
+                    <div class="stat-label">📜 Certificates Earned</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">IT</div>
-                    <div class="stat-label">Something about IT</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">IT</div>
-                    <div class="stat-label">Something about IT</div>
+                    <div class="stat-name" id="stat-name-3">Software Development and Design Thinking</div> <!-- Rotating certificates -->
+                    <div class="stat-label">🎤 Seminars Attended</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Home Section -->
-    <section id="home" class="section">
+    <!-- <section id="home" class="section">
         <div class="coverflow-wrapper">
             <div class="info">
                 <h2 id="current-title"></h2>
@@ -221,14 +218,13 @@
                 <div class="dots-container" id="dots"></div>
 
                 <!-- Play/Pause Button -->
-                <button class="play-pause-button" id="playPauseBtn" onclick="toggleAutoplay()">
+                <!-- <button class="play-pause-button" id="playPauseBtn" onclick="toggleAutoplay()">
                     <span class="play-icon">▶</span>
                     <span class="pause-icon" style="display: none;">❚❚</span>
                 </button>
             </div>
         </div>
-    </section>
-
+    </section> --> -->
 
 
     <!-- Contact Section -->
@@ -242,8 +238,7 @@
             <div class="contact-container">
                 <div class="contact-info-section">
                     <h3>Let's Connect</h3>
-                    <p>We're here to help bring your vision to life. Whether you need a stunning gallery, a complete
-                        website redesign, or custom development work, we'd love to hear from you.</p>
+                    <p>I'm currently looking for a job as a web developer or software developer.</p>
 
                     <div class="contact-details">
                         <div class="contact-item">
@@ -255,7 +250,9 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p>hello@3dcoverflow.com</p>
+                                <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=julliardm49@gmail.com" target="_blank" class="email-link">
+                                    julliardm49@gmail.com
+                                  </a></p>
                             </div>
                         </div>
 
@@ -268,7 +265,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Phone</h4>
-                                <p>+1 (555) 123-4567</p>
+                                <p>09282731594</p>
                             </div>
                         </div>
 
@@ -276,12 +273,12 @@
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24">
                                     <path
-                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             </div>
                             <div class="contact-text">
-                                <h4>Address</h4>
-                                <p>123 Design Street, San Francisco, CA 94102</p>
+                                <h4>Location</h4>
+                                <p>Philippines • Remote Work Available</p>
                             </div>
                         </div>
 
@@ -294,7 +291,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Business Hours</h4>
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+                                <p>Monday - Friday: 9:00 AM - 5:00 PM GMT+8</p>
                             </div>
                         </div>
                     </div>
@@ -312,7 +309,7 @@
                     </div>
                 </div>
 
-                <div class="contact-form-section">
+                <!-- <div class="contact-form-section">
                     <form class="contact-form" onsubmit="handleSubmit(event)">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -332,7 +329,7 @@
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

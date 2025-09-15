@@ -434,6 +434,13 @@ function initializeInteractiveHeader() {
     }
 }
 
+// Stats section
+function updateStats() {
+    // to be implemented
+
+}
+
+
 // Intersection Observer for triggering animations when section comes into view
 function setupScrollAnimations() {
     const aboutHeader = document.querySelector('.about-header');
