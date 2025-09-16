@@ -436,8 +436,22 @@ function initializeInteractiveHeader() {
 
 // Stats section
 function updateStats() {
-    // to be implemented
+    const statName1Content = ['PMA Inventory System', "Sol'n: Serious Educational Game"];
+    const statName2Content = ['Civil Service Professional Eligibility', 'PHP for Beginners: PHP Crash Course', 'Jira Agile Fundamentals: Build Strong Agile Basics','Make a WordPress Website with Elementor'];
+    const statName3Content = ['Software Development and Design Thinking', 'Software Development and Design Thinking', 'Sailing Smooth in Cyberspace: Strengthening Cybersecurity in the Age of ICT']
+    const stats = document.querySelectorAll('.stat-item');
 
+    function updateStatName(statName, content) {
+        statName.style.transform = 'translateY(20px)';
+        statName.textContent = content[Math.floor(Math.random() * content.length)];
+        statName.style.transform = 'translateY(0)';
+    }
+
+    setTimeout(() => {  
+        updateStatName(stats[0].querySelector('.stat-name'), statName1Content);
+        updateStatName(stats[1].querySelector('.stat-name'), statName2Content);
+        updateStatName(stats[2].querySelector('.stat-name'), statName3Content);
+    }, 2000);
 }
 
 
@@ -470,3 +484,4 @@ updateCoverflow();
 // container.focus();
 // startAutoplay();
 setupScrollAnimations();
+updateStats();
