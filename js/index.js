@@ -438,20 +438,40 @@ function initializeInteractiveHeader() {
 function updateStats() {
     const statName1Content = ['PMA Inventory System', "Sol'n: Serious Educational Game"];
     const statName2Content = ['Civil Service Professional Eligibility', 'PHP for Beginners: PHP Crash Course', 'Jira Agile Fundamentals: Build Strong Agile Basics','Make a WordPress Website with Elementor'];
-    const statName3Content = ['Software Development and Design Thinking', 'Software Development and Design Thinking', 'Sailing Smooth in Cyberspace: Strengthening Cybersecurity in the Age of ICT']
+    const statName3Content = ['Software Development and Design Thinking', 'Sailing Smooth in Cyberspace: Strengthening Cybersecurity in the Age of ICT'];
     const stats = document.querySelectorAll('.stat-item');
 
-    function updateStatName(statName, content) {
+    // Track current index for each stat to cycle through content
+    let currentIndex1 = 1;
+    let currentIndex2 = 1;
+    let currentIndex3 = 1;
+
+    function updateStatName(statName, content, currentIndex) {
+        statName.style.opacity = '0';
         statName.style.transform = 'translateY(20px)';
-        statName.textContent = content[Math.floor(Math.random() * content.length)];
-        statName.style.transform = 'translateY(0)';
+        statName.style.transition = 'all 0.6s ease';
+
+        setTimeout(() => {
+            statName.style.opacity = '1';
+            statName.style.transform = 'translateY(0)';
+            statName.textContent = content[currentIndex];
+        }, 300);
+
+        return (currentIndex + 1) % content.length;
     }
 
-    setTimeout(() => {  
-        updateStatName(stats[0].querySelector('.stat-name'), statName1Content);
-        updateStatName(stats[1].querySelector('.stat-name'), statName2Content);
-        updateStatName(stats[2].querySelector('.stat-name'), statName3Content);
-    }, 2000);
+    // Start rotation for each stat with different intervals for variety
+    setInterval(() => {
+        currentIndex1 = updateStatName(stats[0].querySelector('.stat-name'), statName1Content, currentIndex1);
+    }, 8000);
+
+    setInterval(() => {
+        currentIndex2 = updateStatName(stats[1].querySelector('.stat-name'), statName2Content, currentIndex2);
+    }, 8000);
+
+    setInterval(() => {
+        currentIndex3 = updateStatName(stats[2].querySelector('.stat-name'), statName3Content, currentIndex3);
+    }, 8000);
 }
 
 
