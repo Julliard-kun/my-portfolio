@@ -1097,6 +1097,90 @@ body {
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
 }
 
+/* Hobbies Section */
+.hobbies-section {
+   padding: 40px;
+   background: rgba(255, 255, 255, 0.03);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 20px
+}
+
+.hobbies-section h3 {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hobbies-section > p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.hobby-card {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hobby-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.hobby-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: tranform 1s ease;
+}
+
+.hobby-card:hover .hobby-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.hobby-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+.hobby-card h4 {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.hobby-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Smooth image loading */
 .image-loading {
     background: linear-gradient(45deg, #333, #555);
@@ -1125,7 +1209,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
@@ -1134,6 +1218,8 @@ body {
 .footer-copyright {
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
+    text-align: center;
+    margin-left: 20px;
 }
 
 .footer-copyright a {
@@ -1150,6 +1236,7 @@ body {
     display: flex;
     gap: 30px;
     align-items: center;
+    margin-left: 20px;
 }
 
 .footer-links a {
@@ -1408,6 +1495,10 @@ body {
 
     .contact-header h2 {
         font-size: 32px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         margin-bottom: 15px;
     }
 

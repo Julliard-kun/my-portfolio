@@ -124,6 +124,22 @@ function updateCoverflow() {
     });
 
     const currentData = imageData[currentIndex];
+    console.log(currentData);
+    currentTitle.textContent = currentData.title;
+    console.log(currentTitle);
+    currentDescription.textContent = currentData.description;
+    console.log(currentDescription);
+
+    currentTitle.style.animation = 'none';
+    currentDescription.style.animation = 'none';
+    setTimeout(() => {
+        currentTitle.style.animation = 'fadeIn 0.6s forwards';
+        currentDescription.style.animation = 'fadeIn 0.6s forwards';
+    }, 10);
+
+    setTimeout(() => {
+        isAnimating = false;
+    }, 600);
 }
 
 function navigate(direction) {
@@ -146,6 +162,12 @@ function goToIndex(index) {
     updateCoverflow();
 }
 
+//Keyboard navigation
+container.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+});
+
 // Click on items to select
 items.forEach((item, index) => {
     item.addEventListener('click', () => goToIndex(index));
@@ -157,6 +179,32 @@ let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
 let isSwiping = false;
+
+container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+    isSwiping = true;
+}, { passive: true });
+
+container.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+
+    const currentX = e.changedTouches[0].screenX;
+    const diff = currentX - touchStartX;
+
+    if (Math.abs(diff) > 10) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+container.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+    isSwiping = false;
+}, { passive: true });
 
 function handleSwipe() {
     const swipeThreshold = 30;
@@ -193,6 +241,27 @@ items.forEach((item, index) => {
     };
 });
 
+// Autoplay functionality
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCoverflow();
+    }, 4000);
+    isPlaying = true;
+    playIcon.style.display = 'none';
+    pauseIcon.style.display = 'block';
+}
+
+function stopAutoplay() {
+    if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+    }
+    isPlaying = false;
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+}
+
 function toggleAutoplay() {
     if (isPlaying) {
         stopAutoplay();
@@ -210,8 +279,17 @@ items.forEach((item) => {
     item.addEventListener('click', handleUserInteraction);
 });
 
+document.querySelector('.nav-button.prev').addEventListener('click', handleUserInteraction);
+document.querySelector('.nav-button.next').addEventListener('click', handleUserInteraction);
+
 dots.forEach((dot) => {
     dot.addEventListener('click', handleUserInteraction);
+});
+
+container.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        handleUserInteraction();
+    }
 });
 
 // Smooth scrolling and active menu item
@@ -316,91 +394,6 @@ function typeWriter(text, element, speed = 100) {
     type();
 }
 
-// Rotating roles animation
-function startRoleRotation() {
-    const roles = ['Web Developer', 'IT Technician'];
-    const roleElement = document.getElementById('rotating-roles');
-    let currentRoleIndex = 0;
-
-    function rotateRole() {
-        roleElement.style.opacity = '0';
-        roleElement.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-            currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-            roleElement.textContent = roles[currentRoleIndex];
-            roleElement.style.opacity = '1';
-            roleElement.style.transform = 'translateY(0)';
-        }, 300);
-    }
-
-    // Start the rotation after initial delay
-    setTimeout(() => {
-        setInterval(rotateRole, 3000);
-    }, 4000);
-}
-
-// Initialize interactive header
-function initializeInteractiveHeader() {
-    const nameElement = document.getElementById('typewriter-name');
-    const roleElement = document.getElementById('rotating-roles');
-
-    if (nameElement) {
-        // Start typewriter effect after a short delay
-        setTimeout(() => {
-            typeWriter('Julliard Macatuggal', nameElement, 80);
-        }, 1000);
-    }
-
-    if (roleElement) {
-        // Add transition styles
-        roleElement.style.transition = 'all 0.3s ease';
-        startRoleRotation();
-    }
-}
-
-// Stats section
-function updateStats() {
-    const statName1Content = ['PMA Inventory System', "Sol'n: Serious Educational Game"];
-    const statName2Content = ['Civil Service Professional Eligibility', 'PHP for Beginners: PHP Crash Course', 'Jira Agile Fundamentals: Build Strong Agile Basics','Make a WordPress Website with Elementor', 
-                                'Information Security Crash Course: Quick Steps to Safety'];
-    const statName3Content = ['Software Development and Design Thinking', 'Sailing Smooth in Cyberspace: Strengthening Cybersecurity in the Age of ICT'];
-    const stats = document.querySelectorAll('.stat-item');
-
-    // Track current index for each stat to cycle through content
-    let currentIndex1 = 1;
-    let currentIndex2 = 1;
-    let currentIndex3 = 1;
-
-    function updateStatName(statName, content, currentIndex) {
-        statName.style.opacity = '0';
-        statName.style.transform = 'translateY(20px)';
-        statName.style.transition = 'all 0.6s ease';
-
-        setTimeout(() => {
-            statName.style.opacity = '1';
-            statName.style.transform = 'translateY(0)';
-            statName.textContent = content[currentIndex];
-        }, 300);
-
-        return (currentIndex + 1) % content.length;
-    }
-
-    // Start rotation for each stat with different intervals for variety
-    setInterval(() => {
-        currentIndex1 = updateStatName(stats[0].querySelector('.stat-name'), statName1Content, currentIndex1);
-    }, 8000);
-
-    setInterval(() => {
-        currentIndex2 = updateStatName(stats[1].querySelector('.stat-name'), statName2Content, currentIndex2);
-    }, 8000);
-
-    setInterval(() => {
-        currentIndex3 = updateStatName(stats[2].querySelector('.stat-name'), statName3Content, currentIndex3);
-    }, 8000);
-}
-
-
 // Intersection Observer for triggering animations when section comes into view
 function setupScrollAnimations() {
     const aboutHeader = document.querySelector('.about-header');
@@ -427,5 +420,5 @@ function setupScrollAnimations() {
 
 // Initialize
 updateCoverflow();
-setupScrollAnimations();
-updateStats();
+container.focus();
+startAutoplay();
