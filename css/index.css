@@ -755,6 +755,7 @@ body {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.8;
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 .feature-list {
@@ -771,7 +772,6 @@ body {
     list-style: none;
     color: rgba(255, 255, 255, 0.9);
     transition: transform 0.3s, color 0.3s;
-    cursor: pointer;
 }
 
 .feature-list li:hover {
@@ -907,6 +907,9 @@ body {
 }
 
 .contact-info-section h3 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 28px;
     margin-bottom: 20px;
     color: white;

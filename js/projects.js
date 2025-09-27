@@ -7,7 +7,7 @@ const currentDescription = document.getElementById('current-description');
 const container = document.querySelector('.coverflow-container');
 const menuToggle = document.getElementById('menuToggle');
 const mainMenu = document.getElementById('mainMenu');
-let currentIndex = 3;
+let currentIndex = 0;
 let isAnimating = false;
 
 // Mobile menu toggle
@@ -35,32 +35,32 @@ document.addEventListener('click', (e) => {
 // Image data with titles and descriptions
 const imageData = [
     {
-        title: "Mountain Landscape",
-        description: "Majestic peaks covered in snow during golden hour"
+        title: "Soln: Serious Educational Game",
+        description: "A serious educational game that teaches players about fractions in a fun and engaging way."
     },
     {
-        title: "Forest Path",
-        description: "A winding trail through ancient woodland"
+        title: "PMA Inventory System",
+        description: "A system that helps the PMA to manage their inventory of equipment and supplies."
     },
     {
-        title: "Lake Reflection",
-        description: "Serene waters mirroring the surrounding landscape"
+        title: "3rd Project",
+        description: "Placeholder for the 3rd project"
     },
     {
-        title: "Ocean Sunset",
-        description: "Golden hour over endless ocean waves"
+        title: "4th Project",
+        description: "Placeholder for the 4th project"
     },
     {
-        title: "Desert Dunes",
-        description: "Rolling sand dunes under vast blue skies"
+        title: "5th Project",
+        description: "Placeholder for the 5th project"
     },
     {
-        title: "Starry Night",
-        description: "Countless stars illuminating the dark sky"
+        title: "6th Project",
+        description: "Placeholder for the 6th project"
     },
     {
-        title: "Waterfall",
-        description: "Cascading water through lush green forest"
+        title: "7th Project",
+        description: "Placeholder for the 7th project"
     }
 ];
 
