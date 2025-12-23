@@ -363,7 +363,7 @@ function initializeInteractiveHeader() {
 function updateStats() {
     const statName1Content = ['PMA Inventory System', "Sol'n: Serious Educational Game"];
     const statName2Content = ['Civil Service Professional Eligibility', 'PHP for Beginners: PHP Crash Course', 'Jira Agile Fundamentals: Build Strong Agile Basics','Make a WordPress Website with Elementor', 
-                                'Information Security Crash Course: Quick Steps to Safety'];
+                                'Information Security Crash Course: Quick Steps to Safety', 'JavaScript Master Course From Beginner to Expert Developer', 'GIT, GitLab, GitHub Fundamentals for Software Developers'];
     const statName3Content = ['Software Development and Design Thinking', 'Sailing Smooth in Cyberspace: Strengthening Cybersecurity in the Age of ICT'];
     const stats = document.querySelectorAll('.stat-item');
 
