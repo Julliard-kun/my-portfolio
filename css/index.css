@@ -841,7 +841,7 @@ body {
 
 .stats-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: flex;
     justify-content: space-around;
     gap: 40px;
     padding: 60px;
@@ -1312,7 +1312,7 @@ body {
     }
 
     .stats-section {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
         gap: 30px;
         padding: 40px;
     }
