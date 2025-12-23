@@ -318,7 +318,7 @@ function typeWriter(text, element, speed = 100) {
 
 // Rotating roles animation
 function startRoleRotation() {
-    const roles = ['Web Developer', 'IT Technician'];
+    const roles = ['Computer Programmer', 'IT Technician'];
     const roleElement = document.getElementById('rotating-roles');
     let currentRoleIndex = 0;
 
